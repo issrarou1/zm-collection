@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passer ma Commande — ZM Collection</title>
+  <link rel="stylesheet" href="index%20(2).html" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #d4956a;
+      --rose-dark: #a0704d;
+      --brown: #6d4c3f;
+      --cream: #faf4f0;
+      --blush: #f0d4c8;
+      --blush-deep: #e8c4b8;
+      --text-light: #8b7b77;
+    }
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: white;
+      color: var(--brown);
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px;
+      background: white;
+      border-bottom: 1px solid var(--blush);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--brown);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex; gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--rose);
+    }
+
+    /* ─── MAIN ─── */
+    main {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 40px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      color: var(--brown);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 14px;
+      border: 2px solid var(--blush);
+      border-radius: 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--rose);
+      background: rgba(212, 149, 106, 0.05);
+    }
+
+    .form-group input:disabled,
+    .form-group select:disabled,
+    .form-group textarea:disabled {
+      background: #f0f0f0;
+      border-color: #d0d0d0;
+      color: #999;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .form-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .order-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      letter-spacing: 0.05em;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 16px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(160, 96, 58, 0.3);
+    }
+
+    .payment-badge {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-light);
+      padding: 12px;
+      background: var(--cream);
+      border-radius: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .success-msg.show {
+      display: block;
+    }
+
+    .success-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    .success-msg h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+
+    .success-msg p {
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--rose);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ─── TOAST ─── */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--brown);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      transition: transform 0.4s;
+      z-index: 999;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--cream);
+      padding: 40px;
+      text-align: center;
+      margin-top: 60px;
+      border-top: 1px solid var(--blush);
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 16px; }
+      main { padding: 20px; margin: 40px auto; }
+      .page-title { font-size: 24px; }
+      .form-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index%20(2).html" class="logo">ZM Collection</a>
+    <div class="nav-links">
+      <a href="index%20(2).html#categories">Catégories</a>
+      <a href="index%20(2).html#produits">Produits</a>
+      <a href="index%20(2).html#pourquoi">À propos</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1 class="page-title">Passer ma Commande</h1>
+    <p class="order-note">🚚 Paiement à la livraison — Livraison sous 24 à 48h</p>
+
+    <div id="order-form-wrap">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Prénom</label>
+          <input type="text" id="fname" placeholder="Votre prénom">
+        </div>
+        <div class="form-group">
+          <label>Nom</label>
+          <input type="text" id="lname" placeholder="Votre nom">
+        </div>
+        <div class="form-group">
+          <label>Téléphone</label>
+          <input type="tel" id="phone" placeholder="+216 XX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label>Gouvernorat</label>
+          <select id="gov">
+            <option value="">Sélectionnez...</option>
+            <option>Tunis</option><option>Ariana</option><option>Ben Arous</option>
+            <option>Manouba</option><option>Nabeul</option><option>Zaghouan</option>
+            <option>Bizerte</option><option>Béja</option><option>Jendouba</option>
+            <option>Le Kef</option><option>Siliana</option><option>Sousse</option>
+            <option>Monastir</option><option>Mahdia</option><option>Sfax</option>
+            <option>Kairouan</option><option>Kasserine</option><option>Sidi Bouzid</option>
+            <option>Gabès</option><option>Médenine</option><option>Tataouine</option>
+            <option>Gafsa</option><option>Tozeur</option><option>Kébili</option>
+          </select>
+        </div>
+        <div class="form-group form-full">
+          <label>Adresse complète</label>
+          <input type="text" id="address" placeholder="Rue, cité, immeuble...">
+        </div>
+        <div class="form-group form-full">
+          <label>Détails de la commande</label>
+          <textarea id="order-details" readonly placeholder="Les détails se remplissent automatiquement depuis votre panier"></textarea>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="submitOrder()">🛍️ Confirmer ma Commande</button>
+      <div class="payment-badge">🔒 Paiement 100% à la livraison — Aucun risque</div>
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      <div class="success-icon">🌸</div>
+      <h3>Commande confirmée !</h3>
+      <p>Merci ! Nous vous contacterons très prochainement pour confirmer votre commande.</p>
+      <p style="margin-top:12px; font-size:12px; color:var(--rose);">ZM Collection — Mode Modeste & Élégante</p>
+      <a href="index%20(2).html" class="back-link">← Retour à la boutique</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 ZM Collection. Tous droits réservés. | Fait avec 🌸 en Tunisie</p>
+  </footer>
+
+  <div class="toast" id="toast">✓ Message</div>
+
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function highlightError(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.borderColor = '#e74c3c';
+      el.style.background = '#fff5f5';
+      el.focus();
+      setTimeout(() => {
+        el.style.borderColor = '';
+        el.style.background = '';
+      }, 3000);
+    }
+
+    function buildOrderDetailsFromCart(cartItems) {
+      return cartItems
+        .filter(c => Number(c && c.qty ? c.qty : 0) > 0)
+        .map(c => {
+          const size = c.selectedSize || 'Non précisée';
+          const color = c.selectedColor || 'Non précisée';
+          return `${c.name} | Taille: ${size} | Couleur: ${color} | Quantité: ${c.qty}`;
+        })
+        .join('\n');
+    }
+
+    // Charger et remplir les détails du panier au chargement
+    document.addEventListener('DOMContentLoaded', () => {
+      const orderDetailsEl = document.getElementById('order-details');
+      const saved = localStorage.getItem('cart');
+
+      if (saved) {
+        let cart = [];
+        try {
+          cart = JSON.parse(saved);
+        } catch (e) {
+          cart = [];
+        }
+
+        if (Array.isArray(cart) && cart.some(c => Number(c.qty || 0) > 0)) {
+          orderDetailsEl.value = buildOrderDetailsFromCart(cart);
+          orderDetailsEl.readOnly = true;
+          orderDetailsEl.style.background = '#fafafa';
+        } else {
+          window.location.href = 'index%20(2).html';
+          return;
+        }
+      } else {
+        window.location.href = 'index%20(2).html';
+        return;
+      }
+
+      // ─── REAL-TIME VALIDATION ───
+      // Prénom & Nom — lettres seulement, min 2
+      ['fname', 'lname'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('input', () => {
+          el.value = el.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '');
+          if (el.value.length >= 2) {
+            el.style.borderColor = '#5cb85c';
+            el.style.background = '#f5fff5';
+          } else if (el.value.length > 0) {
+            el.style.borderColor = '#e74c3c';
+            el.style.background = '#fff5f5';
+          } else {
+            el.style.borderColor = '';
+            el.style.background = '';
+          }
+        });
+      });
+
+      // Téléphone — 8 chiffres exactement
+      const phoneEl = document.getElementById('phone');
+      if (phoneEl) {
+        phoneEl.addEventListener('input', () => {
+          phoneEl.value = phoneEl.value.replace(/[^0-9\s+]/g, '').slice(0, 12);
+          const phoneClean = phoneEl.value.replace(/\s+/g, '').replace('+216', '');
+          if (phoneClean.length === 8) {
+            phoneEl.style.borderColor = '#5cb85c';
+            phoneEl.style.background = '#f5fff5';
+          } else if (phoneClean.length > 0) {
+            phoneEl.style.borderColor = '#e74c3c';
+            phoneEl.style.background = '#fff5f5';
+          } else {
+            phoneEl.style.borderColor = '';
+            phoneEl.style.background = '';
+          }
+        });
+      }
+    });
+
+    async function submitOrder() {
+      const fname = document.getElementById('fname').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const gov   = document.getElementById('gov').value;
+      const addr  = document.getElementById('address').value.trim();
+      const savedCart = localStorage.getItem('cart');
+      let cartItems = [];
+      if (savedCart) {
+        try {
+          cartItems = JSON.parse(savedCart);
+        } catch (e) {
+          cartItems = [];
+        }
+      }
+      const dets = buildOrderDetailsFromCart(Array.isArray(cartItems) ? cartItems : []).trim();
+
+      // Validation Prénom
+      if (!fname) {
+        showToast('⚠️ Veuillez entrer votre prénom');
+        highlightError('fname');
+        return;
+      }
+      if (fname.length < 2) {
+        showToast('⚠️ Le prénom doit contenir au moins 2 lettres');
+        highlightError('fname');
+        return;
+      }
+      if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(fname)) {
+        showToast('⚠️ Le prénom ne doit contenir que des lettres');
+        highlightError('fname');
+        return;
+      }
+
+      // Validation Nom
+      if (!lname) {
+        showToast('⚠️ Veuillez entrer votre nom');
+        highlightError('lname');
+        return;
+      }
+      if (lname.length < 2) {
+        showToast('⚠️ Le nom doit contenir au moins 2 lettres');
+        highlightError('lname');
+        return;
+      }
+      if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(lname)) {
+        showToast('⚠️ Le nom ne doit contenir que des lettres');
+        highlightError('lname');
+        return;
+      }
+
+      // Validation Téléphone
+      if (!phone) {
+        showToast('⚠️ Veuillez entrer votre numéro de téléphone');
+        highlightError('phone');
+        return;
+      }
+      const phoneClean = phone.replace(/\s+/g, '').replace('+216', '');
+      if (!/^[0-9]+$/.test(phoneClean)) {
+        showToast('⚠️ Le téléphone ne doit contenir que des chiffres');
+        highlightError('phone');
+        return;
+      }
+      if (phoneClean.length !== 8) {
+        showToast('⚠️ Le numéro doit contenir exactement 8 chiffres');
+        highlightError('phone');
+        return;
+      }
+
+      // Validation Commande
+      if (!dets) {
+        showToast('⚠️ Veuillez d\'abord ajouter des produits à votre panier');
+        highlightError('order-details');
+        return;
+      }
+
+      const btn = document.querySelector('.submit-btn');
+      btn.innerHTML = '⏳ Envoi en cours...';
+      btn.disabled = true;
+
+      const SHEET_URL = "https://script.google.com/macros/s/AKfycbyRCcvQZ00WaNwOcbniak2CRGfN8gYHMRAz3x7Ef5TR2tQeEPUNYwXrFhhDOlQjV_z3lQ/exec";
+
+      try {
+        await fetch(SHEET_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            prenom: fname,
+            nom: lname,
+            telephone: phone,
+            gouvernorat: gov,
+            adresse: addr,
+            commande: dets
+          })
+        });
+
+        document.getElementById('order-form-wrap').style.display = 'none';
+        document.getElementById('success-msg').classList.add('show');
+        
+        // Vider le panier après la commande réussie
+        localStorage.removeItem('cart');
+
+      } catch (error) {
+        showToast('❌ Erreur, réessayez svp');
+        btn.innerHTML = '🛍️ Confirmer ma Commande';
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZM Collection — Mode Modeste & Élégante</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blush: #f5e6da;
+  --blush-deep: #e8cbb5;
+  --rose: #d4956a;
+  --rose-dark: #a0603a;
+  --cream: #fdf8f4;
+  --brown: #5c3420;
+  --brown-light: #8b5e3c;
+  --text: #3a2010;
+  --text-light: #7a5040;
+  --white: #fffaf7;
+  --shadow: rgba(160,96,58,0.15);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--blush); }
+::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 10px; }
+
+/* ─── NAVBAR ─── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(253,248,244,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212,149,106,0.2);
+  padding: 0 40px;
+  height: 70px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--brown);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+.nav-logo span {
+  font-family: 'Great Vibes', cursive;
+  font-size: 14px;
+  display: block;
+  color: var(--rose);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0; right: 100%;
+  height: 1px;
+  background: var(--rose);
+  transition: right 0.3s;
+}
+
+.nav-links a:hover { color: var(--rose-dark); }
+.nav-links a:hover::after { right: 0; }
+
+.nav-cart {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--rose);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.nav-cart:hover { background: var(--rose-dark); transform: translateY(-1px); }
+
+.hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; background: none; border: none; padding: 5px;
+}
+.hamburger span {
+  width: 24px; height: 2px;
+  background: var(--brown);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(232,203,181,0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(212,149,106,0.2) 0%, transparent 50%),
+    linear-gradient(135deg, #fdf8f4 0%, #f5e6da 50%, #fdf8f4 100%);
+  padding: 100px 40px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative circles */
+#hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(212,149,106,0.15);
+  top: -100px; right: -100px;
+  pointer-events: none;
+}
+
+#hero::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  border: 1px solid rgba(212,149,106,0.1);
+  bottom: -50px; left: -50px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+  width: 100%;
+}
+
+.hero-text { animation: slideLeft 1s ease both; }
+
+@keyframes slideLeft {
+  from { opacity:0; transform: translateX(-40px); }
+  to { opacity:1; transform: translateX(0); }
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(212,149,106,0.15);
+  border: 1px solid rgba(212,149,106,0.3);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin-bottom: 24px;
+}
+
+.hero-badge::before { content: '✦'; font-size: 8px; }
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 7vw, 80px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--brown);
+  margin-bottom: 20px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--rose);
+  font-weight: 300;
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  font-weight: 300;
+  max-width: 400px;
+}
+
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--rose);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  transition: all 0.3s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(160,96,58,0.3); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--brown);
+  padding: 14px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  border: 1px solid var(--blush-deep);
+  transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: var(--rose); color: var(--rose); }
+
+.hero-stats {
+  display: flex; gap: 32px; margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(212,149,106,0.2);
+}
+
+.stat-num {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  color: var(--brown);
+  display: block;
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+/* Hero visual */
+.hero-visual {
+  display: flex; justify-content: center; align-items: center;
+  animation: slideRight 1s ease 0.2s both;
+  position: relative;
+}
+
+@keyframes slideRight {
+  from { opacity:0; transform: translateX(40px); }
+  to { opacity:1; transform: translateX(0); }
+}
+
+.hero-oval {
+  width: 380px; height: 460px;
+  background: linear-gradient(160deg, #f5ede0, #e8d0b8, #d4b090);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(160,96,58,0.25), inset 0 -20px 40px rgba(180,120,70,0.15);
+  overflow: hidden;
+}
+
+.hero-oval::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 25%, rgba(255,245,235,0.5) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.hero-oval img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 0;
+}
+
+.hero-oval-brand {
+  position: absolute;
+  top: 30px;
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  color: var(--brown);
+  letter-spacing: 0.1em;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-oval-brand small {
+  display: block;
+  font-family: 'Great Vibes', cursive;
+  font-size: 18px;
+  color: var(--rose-dark);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+/* Floating tags */
+.float-tag {
+  position: absolute;
+  background: white;
+  border-radius: 12px;
+  padding: 8px 14px;
+  box-shadow: 0 8px 24px rgba(160,96,58,0.15);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--brown);
+  display: flex; align-items: center; gap: 6px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-tag.left { left: -30px; top: 40%; animation-delay: 0s; }
+.float-tag.right { right: -20px; bottom: 30%; animation-delay: 1.5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ─── SECTION COMMON ─── */
+section { padding: 80px 40px; }
+
+.section-header { text-align: center; margin-bottom: 56px; }
+
+.section-tag {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 12px;
+  display: block;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 300;
+  color: var(--brown);
+  line-height: 1.2;
+}
+
+h2 em { font-style: italic; color: var(--rose); }
+
+.section-divider {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  margin: 16px 0;
+}
+.section-divider span { width: 60px; height: 1px; background: var(--blush-deep); }
+.section-divider em { color: var(--rose); font-style: normal; font-size: 10px; }
+
+/* ─── CATEGORIES ─── */
+#categories {
+  background: var(--white);
+}
+
+.cats-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+}
+
+.cat-card {
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, var(--blush), var(--blush-deep));
+  transition: transform 0.4s, box-shadow 0.4s;
+  text-decoration: none;
+}
+
+.cat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px var(--shadow); }
+
+.cat-bg {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 100px;
+  opacity: 0.12;
+}
+
+.cat-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.95;
+}
+
+.cat-figure {
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 80%;
+}
+
+.cat-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(92,52,32,0.85));
+  padding: 24px 20px 20px;
+  color: white;
+}
+
+.cat-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cat-count {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+}
+
+/* Category colors */
+.cat-card:nth-child(1) { background: linear-gradient(160deg, #f5e6da, #e8c4a8); }
+.cat-card:nth-child(2) { background: linear-gradient(160deg, #ead8cc, #d4b090); }
+.cat-card:nth-child(3) { background: linear-gradient(160deg, #f0ddd0, #ddb898); }
+.cat-card:nth-child(4) { background: linear-gradient(160deg, #e8d0c0, #ccaa88); }
+
+/* ─── PRODUCTS ─── */
+#produits {
+  background: var(--cream);
+}
+
+.products-wrap { max-width: 1200px; margin: 0 auto; }
+
+.filter-tabs {
+  display: flex; gap: 10px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 40px;
+}
+
+.filter-tab {
+  padding: 8px 22px;
+  border-radius: 30px;
+  border: 1px solid var(--blush-deep);
+  background: transparent;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-tab.active, .filter-tab:hover {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: white;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s;
+  cursor: pointer;
+  box-shadow: 0 2px 16px rgba(160,96,58,0.08);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(160,96,58,0.18);
+}
+
+.product-img {
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, var(--blush), var(--blush-deep));
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.product-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: var(--rose);
+  color: white;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.product-badge.new { background: #8b5e3c; }
+.product-badge.promo { background: #c0392b; }
+
+.product-actions {
+  position: absolute; top: 14px; right: 14px;
+  display: flex; flex-direction: column; gap: 8px;
+  opacity: 0; transform: translateX(10px);
+  transition: all 0.3s;
+}
+
+.product-card:hover .product-actions { opacity: 1; transform: translateX(0); }
+
+.action-btn {
+  width: 36px; height: 36px;
+  background: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: none; cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+}
+.action-btn:hover { background: var(--rose); transform: scale(1.1); }
+
+.product-info { padding: 18px 20px 20px; }
+
+.product-cat {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 6px;
+}
+
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--brown);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.product-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.product-price {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  color: var(--brown);
+}
+
+.product-price span {
+  font-size: 12px;
+  color: var(--text-light);
+  font-family: 'Jost', sans-serif;
+  margin-left: 3px;
+}
+
+.add-btn {
+  width: 38px; height: 38px;
+  background: var(--rose);
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex; align-items: center; justify-content: center;
+}
+.add-btn:hover { background: var(--rose-dark); transform: scale(1.1) rotate(90deg); }
+
+/* Product figure illustrations */
+.prod-illus {
+  width: 75%; height: auto;
+  filter: drop-shadow(2px 8px 12px rgba(92,52,32,0.2));
+}
+
+/* ─── WHY US ─── */
+#pourquoi {
+  background: linear-gradient(135deg, var(--brown) 0%, #3a1a08 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+#pourquoi::before {
+  content: 'ZM';
+  position: absolute;
+  font-family: 'Cinzel', serif;
+  font-size: 300px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.03);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+#pourquoi .section-tag { color: var(--blush-deep); }
+#pourquoi h2 { color: white; }
+#pourquoi h2 em { color: var(--blush-deep); }
+#pourquoi .section-divider span { background: rgba(255,255,255,0.2); }
+
+.why-grid {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+}
+
+.why-card {
+  text-align: center;
+  padding: 40px 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.03);
+}
+
+.why-card:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-4px);
+  border-color: rgba(212,149,106,0.4);
+}
+
+.why-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.why-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: var(--blush);
+}
+
+.why-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+}
+
+/* ─── TESTIMONIALS ─── */
+#avis {
+  background: var(--white);
+}
+
+.reviews-grid {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+
+.review-card {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid rgba(212,149,106,0.15);
+  transition: all 0.3s;
+}
+
+.review-card:hover {
+  border-color: var(--rose);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.stars { color: #f0a030; font-size: 14px; margin-bottom: 14px; }
+
+.review-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.review-author {
+  display: flex; align-items: center; gap: 12px;
+}
+
+.author-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blush), var(--blush-deep));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+
+.author-name {
+  font-weight: 500; font-size: 14px; color: var(--brown);
+  display: block;
+}
+.author-city { font-size: 12px; color: var(--text-light); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--brown);
+  color: rgba(255,255,255,0.7);
+  padding: 60px 40px 30px;
+}
+
+.footer-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand .logo-f {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  color: white;
+  letter-spacing: 0.1em;
+  display: block; margin-bottom: 4px;
+}
+
+.footer-brand .logo-f-sub {
+  font-family: 'Great Vibes', cursive;
+  font-size: 16px;
+  color: var(--blush-deep);
+  display: block; margin-bottom: 16px;
+}
+
+.footer-brand p {
+  font-size: 13px; line-height: 1.7; max-width: 260px;
+  font-weight: 300;
+}
+
+.footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+
+.social-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s;
+  color: white;
+}
+.social-btn:hover { background: var(--rose); transform: translateY(-2px); }
+
+.footer-col h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  color: white;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+.footer-col ul a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 300;
+}
+.footer-col ul a:hover { color: var(--blush-deep); }
+
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  padding-top: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px;
+}
+
+/* ─── CART MODAL ─── */
+.cart-overlay {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(0,0,0,0.4);
+  display: none; align-items: flex-start; justify-content: flex-end;
+}
+.cart-overlay.open { display: flex; }
+
+.cart-panel {
+  width: 380px; max-width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex; flex-direction: column;
+  animation: slidePanel 0.3s ease;
+}
+
+@keyframes slidePanel {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.cart-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--blush);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.cart-header h3 {
+  font-family: 'Cinzel', serif; font-size: 18px; color: var(--brown);
+}
+
+.cart-close {
+  background: none; border: none; font-size: 24px;
+  color: var(--text-light); cursor: pointer;
+}
+
+.cart-items { flex: 1; overflow-y: auto; padding: 16px; }
+
+.cart-empty {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-light); font-size: 14px;
+}
+
+.cart-empty-icon { font-size: 48px; display: block; margin-bottom: 12px; }
+
+.cart-item {
+  display: flex; gap: 12px; padding: 12px;
+  border-radius: 12px; margin-bottom: 8px;
+  background: var(--cream);
+}
+
+.cart-item-img {
+  width: 64px; height: 80px;
+  background: linear-gradient(160deg, var(--blush), var(--blush-deep));
+  border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+
+.cart-item-info { flex: 1; }
+.cart-item-name { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--brown); }
+.cart-item-price { font-size: 14px; color: var(--rose); font-weight: 500; margin-top: 4px; }
+
+.cart-item-remove {
+  background: none; border: none; color: var(--text-light);
+  cursor: pointer; font-size: 18px; align-self: flex-start;
+}
+
+.cart-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--blush);
+}
+
+.cart-total {
+  display: flex; justify-content: space-between;
+  font-family: 'Cinzel', serif; font-size: 18px;
+  color: var(--brown); margin-bottom: 16px;
+}
+
+.cart-order-btn {
+  width: 100%; padding: 14px;
+  background: var(--rose);
+  color: white; border: none;
+  border-radius: 12px;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.cart-order-btn:hover { background: var(--rose-dark); }
+
+/* ─── PRODUCT DETAIL MODAL ─── */
+.product-detail-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.6);
+  display: none; align-items: center; justify-content: center;
+}
+.product-detail-overlay.open { display: flex; }
+
+.product-detail-modal {
+  background: white; border-radius: 20px;
+  width: 90%; max-width: 900px; max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalPop 0.3s ease;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.detail-close {
+  position: absolute; top: 20px; right: 20px;
+  background: white; border: 1px solid var(--blush);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s;
+}
+.detail-close:hover { background: var(--blush); }
+
+.detail-content {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  padding: 40px;
+}
+
+.detail-img { border-radius: 12px; overflow: hidden; height: 500px; }
+
+.detail-info { display: flex; flex-direction: column; gap: 20px; }
+
+.detail-badge {
+  display: inline-block; width: fit-content;
+  padding: 6px 14px; border-radius: 20px;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: white;
+}
+
+#detail-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px; font-weight: 300;
+  color: var(--brown);
+}
+
+.detail-price {
+  font-family: 'Cinzel', serif;
+  font-size: 28px; color: var(--rose);
+  font-weight: 600;
+}
+
+.detail-desc {
+  font-size: 15px; line-height: 1.7;
+  color: var(--text-light);
+}
+
+.detail-section {
+  display: flex; flex-direction: column; gap: 10px;
+}
+
+.detail-section label {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brown);
+  font-weight: 500;
+}
+
+.detail-colors, .detail-sizes {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+
+.color-btn, .size-btn {
+  padding: 8px 16px; border: 2px solid var(--blush);
+  border-radius: 8px; background: white;
+  cursor: pointer; font-size: 13px;
+  transition: all 0.3s;
+}
+
+.color-btn:hover, .size-btn:hover,
+.color-btn.active, .size-btn.active {
+  border-color: var(--rose);
+  background: rgba(212,149,106,0.1);
+  color: var(--rose);
+}
+
+.detail-qty {
+  display: flex; align-items: center; gap: 10px;
+}
+
+.detail-qty button {
+  width: 40px; height: 40px;
+  border: 1px solid var(--blush);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s;
+}
+
+.detail-qty button:hover {
+  background: var(--blush);
+  border-color: var(--rose);
+}
+
+#detail-qty {
+  width: 60px; text-align: center;
+  padding: 8px; border: 1px solid var(--blush);
+  border-radius: 8px; font-size: 14px;
+}
+
+.detail-add-btn {
+  width: 100%; padding: 16px;
+  background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+  color: white; border: none; border-radius: 12px;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 20px;
+}
+
+.detail-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(160,96,58,0.3);
+}
+
+@media (max-width: 768px) {
+  .detail-content {
+    grid-template-columns: 1fr;
+    gap: 20px; padding: 20px;
+  }
+  .detail-img { height: 300px; }
+  #detail-name { font-size: 24px; }
+}
+
+/* ─── TOAST ─── */
+.toast {
+  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+  background: var(--brown);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  transition: transform 0.4s;
+  z-index: 9999;
+  display: flex; align-items: center; gap: 8px;
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ─── SUCCESS ─── */
+.success-msg {
+  display: none;
+  text-align: center; padding: 40px;
+}
+.success-msg.show { display: block; }
+.success-icon { font-size: 60px; margin-bottom: 16px; }
+.success-msg h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--brown); }
+.success-msg p { color: var(--text-light); margin-top: 8px; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-visual { display: none; }
+  .hero-btns { justify-content: center; }
+  .hero-stats { justify-content: center; }
+
+  .cats-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .order-wrap { padding: 28px 20px; }
+  section { padding: 60px 20px; }
+}
+
+@media (max-width: 500px) {
+  .cats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="nav-logo">
+    ZM
+    <span>Collection</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#categories">Catégories</a></li>
+    <li><a href="#produits">Produits</a></li>
+    <li><a href="#pourquoi">Pourquoi Nous</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#" onclick="goToOrder(); return false;">Commander</a></li>
+  </ul>
+  <button class="nav-cart" onclick="toggleCart()">
+    🛒 Panier <span id="cart-count" style="background:white;color:var(--rose);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;">0</span>
+  </button>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">Nouvelle Collection 2026</div>
+      <h1>Mode <em>Élégante</em><br>pour Femmes<br>Modestes</h1>
+      <p class="hero-sub">Découvrez notre collection exclusive de robes, ensembles et tenues pour femmes. Style, élégance et confort réunis.</p>
+      <div class="hero-btns">
+        <a href="#produits" class="btn-primary">Voir la Collection →</a>
+        <a href="#" class="btn-secondary" onclick="goToOrder(); return false;">Commander</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="stat-num">200+</span>
+          <span class="stat-label">Clientes Satisfaites</span>
+        </div>
+        <div>
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Modèles Disponibles</span>
+        </div>
+        <div>
+          <span class="stat-num">48h</span>
+          <span class="stat-label">Livraison Rapide</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="float-tag left">✨ Qualité Premium</div>
+      <div class="hero-oval">
+        <img src="logo-zm.jpg" alt="Logo ZM Collection">
+      </div>
+      <div class="float-tag right">🚚 Paiement à la livraison</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="section-header">
+    <span class="section-tag">✦ &nbsp; Notre Boutique &nbsp; ✦</span>
+    <h2>Toutes les <em>Catégories</em></h2>
+    <div class="section-divider"><span></span><em>✦</em><span></span></div>
+  </div>
+  <div class="cats-grid">
+    <a href="#produits" class="cat-card" onclick="filterProducts('robes')">
+      <div class="cat-bg"><img src="robe.png" alt="Catégorie Robes"></div>
+      <div class="cat-info">
+        <span  class="cat-name" >Robes</span>
+       
+      </div>
+    </a>
+    <a href="#produits" class="cat-card" onclick="filterProducts('ensembles')">
+      <div class="cat-bg"><img src="ensemble-mobile.avif" alt=""></div>
+      <div class="cat-info" >
+        <span class="cat-name">Ensembles</span>
+  
+      </div>
+    </a>
+    <a href="#produits" class="cat-card" onclick="filterProducts('casual')">
+      <div class="cat-bg"><img src="download.jpg" alt=""></div>
+      <div class="cat-info">
+        <span class="cat-name">Casual</span>
+        
+      </div>
+    </a>
+    <a href="#produits" class="cat-card" onclick="filterProducts('soiree')">
+      <div class="cat-bg"><img src="imagess.jpg" alt=""></div>
+      <div class="cat-info">
+        <span class="cat-name">Soirée</span>
+        
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="produits">
+  <div class="section-header">
+    <span class="section-tag">✦ &nbsp; Nos Créations &nbsp; ✦</span>
+    <h2>Nos <em>Produits</em></h2>
+    <div class="section-divider"><span></span><em>✦</em><span></span></div>
+  </div>
+  <div class="products-wrap">
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterProducts('tous', this)">Tous</button>
+      <button class="filter-tab" onclick="filterProducts('robes', this)">Robes</button>
+      <button class="filter-tab" onclick="filterProducts('ensembles', this)">Ensembles</button>
+      <button class="filter-tab" onclick="filterProducts('casual', this)">Casual</button>
+      <button class="filter-tab" onclick="filterProducts('soiree', this)">Soirée</button>
+    </div>
+    <div class="products-grid" id="products-grid">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="pourquoi">
+  <div class="section-header">
+    <span class="section-tag">✦ &nbsp; Nos Engagements &nbsp; ✦</span>
+    <h2>Pourquoi choisir <em>ZM Collection</em> ?</h2>
+    <div class="section-divider"><span></span><em>✦</em><span></span></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">🌸</span>
+      <div class="why-title">Style Modeste & Élégant</div>
+      <p class="why-desc">Des tenues pensées pour la femme moderne qui veut rester élégante sans compromis sur ses valeurs.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🚚</span>
+      <div class="why-title">Paiement à la Livraison</div>
+      <p class="why-desc">Commandez en toute confiance. Vous payez uniquement quand vous recevez votre colis à domicile.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">💎</span>
+      <div class="why-title">Qualité Garantie</div>
+      <p class="why-desc">Chaque pièce est soigneusement sélectionnée pour sa qualité, sa coupe et son confort au quotidien.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="avis">
+  <div class="section-header">
+    <span class="section-tag">✦ &nbsp; Témoignages &nbsp; ✦</span>
+    <h2>Ce que disent nos <em>Clientes</em></h2>
+    <div class="section-divider"><span></span><em>✦</em><span></span></div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"J'ai reçu mon ensemble en 2 jours, la qualité est vraiment excellente. Je recommande vivement !"</p>
+      <div class="review-author">
+        <div class="author-avatar">🌸</div>
+        <div>
+          <span class="author-name">Sana M.</span>
+          <span class="author-city">Tunis</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Exactement comme sur les photos. La robe est magnifique et très élégante. Merci ZM Collection !"</p>
+      <div class="review-author">
+        <div class="author-avatar">✨</div>
+        <div>
+          <span class="author-name">Rania B.</span>
+          <span class="author-city">Sfax</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Service rapide, tenue parfaite. Paiement à la livraison, c'est rassurant. Je reviendrai !"</p>
+      <div class="review-author">
+        <div class="author-avatar">💐</div>
+        <div>
+          <span class="author-name">Amira K.</span>
+          <span class="author-city">Sousse</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-f">ZM Collection</span>
+      <span class="logo-f-sub">Mode Modeste & Élégante</span>
+      <p>Votre boutique de mode en ligne spécialisée dans les tenues pour femmes . Qualité, style et élégance.</p>
+      <div class="footer-socials">
+        <a class="social-btn" href="#" title="TikTok">🎵</a>
+        <a class="social-btn" href="#" title="Instagram">📸</a>
+        <a class="social-btn" href="#" title="Facebook">📘</a>
+        <a class="social-btn" href="https://wa.me/21600000000" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Boutique</h4>
+      <ul>
+        <li><a href="#categories">Catégories</a></li>
+        <li><a href="#produits">Tous les produits</a></li>
+        <li><a href="#produits">Nouveautés</a></li>
+        <li><a href="#produits">Promotions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informations</h4>
+      <ul>
+        <li><a href="#pourquoi">À propos</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#" onclick="goToOrder(); return false;">Comment commander</a></li>
+        <li><a href="#">Politique retour</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/21600000000">💬 WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/maysanamouchi1/">📸 Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@.maysa46?_r=1&_t=ZS-95wd4m5CGYa">🎵 TikTok</a></li>
+        <li><a href="#">📘 Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ZM Collection. Tous droits réservés.</span>
+    <span>Fait avec 🌸 en Tunisie</span>
+  </div>
+</footer>
+
+<!-- CART -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCartOutside(event)">
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h3>🛒 Mon Panier</h3>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <div class="cart-empty">
+        <span class="cart-empty-icon">🛍️</span>
+        Votre panier est vide
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cart-total">0 DT</span>
+      </div>
+      <button class="cart-order-btn" onclick="goToOrder()">Commander →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="product-detail-overlay" id="product-detail-overlay" onclick="closeProductDetail(event)">
+  <div class="product-detail-modal">
+    <button class="detail-close" onclick="closeProductDetail()">✕</button>
+    <div class="detail-content">
+      <div class="detail-img">
+        <img id="detail-product-img" src="" alt="Product" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+      <div class="detail-info">
+        <div class="detail-badge" id="detail-badge"></div>
+        <h1 id="detail-name"></h1>
+        <div class="detail-price">
+          <span id="detail-price"></span> DT
+        </div>
+        <p id="detail-desc" class="detail-desc"></p>
+        
+        <div class="detail-section">
+          <label>Couleurs disponibles :</label>
+          <div id="detail-colors" class="detail-colors"></div>
+        </div>
+        
+        <div class="detail-section">
+          <label>Tailles :</label>
+          <div id="detail-sizes" class="detail-sizes"></div>
+        </div>
+        
+        <div class="detail-section">
+          <label>Quantité :</label>
+          <div class="detail-qty">
+            <button onclick="changeQty(-1)">−</button>
+            <input type="number" id="detail-qty" value="1" min="1" max="10">
+            <button onclick="changeQty(1)">+</button>
+          </div>
+        </div>
+        
+        <button class="detail-add-btn" onclick="addToCartFromDetail()">🛍️ Ajouter au Panier</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Ajouté au panier</div>
+
+<script>
+// ─── PRODUCTS DATA ───
+const products = [
+  { id:1, name:'Robe Élégante Mauve', cat:'robes', price:85, badge:'new', emoji:'👗', color:'#d4a0c8', image:'robe_mauve.jpg', desc:'Robe élégante et confortable pour femmes modestes. Coupe fluide avec manches longues, parfaite pour toute occasion.', sizes:['S','M','L','XL'], colors:['Mauve','Rose','Noir'] },
+  { id:2, name:'Ensemble Blazer Camel', cat:'ensembles', price:120, badge:'', emoji:'👔', color:'#c8a070', image:'Ensemble_Blazer_Camel.jpg', desc:'Ensemble chic composé d\'un blazer et pantalon. Style moderne et intemporel pour un look professionnel.', sizes:['S','M','L','XL'], colors:['Camel','Noir','Gris'] },
+  { id:3, name:'Robe Abaya Noire', cat:'robes', price:95, badge:'promo', emoji:'🖤', color:'#8a8a8a', image:'Robe_Abaya_Noire.jpg', desc:'Abaya traditionnelle en tissu premium. Parfaite pour les occasions formelles avec une touche d\'élégance.', sizes:['S','M','L','XL','XXL'], colors:['Noir','Marron','Gris'] },
+  { id:4, name:'Set Casual Beige', cat:'casual', price:75, badge:'new', emoji:'✨', color:'#d4c4a0', image:'Set_Casual_Beige.jpg', desc:'Ensemble casual confortable idéal pour le quotidien. Pantalon large et chemise assortie pour un style décontracté.', sizes:['S','M','L','XL'], colors:['Beige','Blanc','Taupe'] },
+  { id:5, name:'Robe Soirée Rose Gold', cat:'soiree', price:150, badge:'', emoji:'🌹', color:'#d4a0a0', image:'Robe_Soirée_Rose_Gold.jpg', desc:'Robe de soirée élégante avec détails raffinés. Tissu haute qualité pour les événements spéciaux.', sizes:['S','M','L','XL'], colors:['Rose Gold','Noir','Argent'] },
+  { id:6, name:'Ensemble Pantalon Bleu', cat:'ensembles', price:110, badge:'', emoji:'💙', color:'#a0b4c8', image:'Ensemble_Pantalon_Bleu.jpg', desc:'Ensemble moderne avec pantalon et top coordonné. Parfait pour le travail ou les sorties décontractées.', sizes:['S','M','L','XL'], colors:['Bleu','Blanc','Gris'] },
+  { id:7, name:'Robe Midi Florale', cat:'robes', price:90, badge:'new', emoji:'🌸', color:'#d4b0c8', image:'Robe_Midi_Florale.jpg', desc:'Robe midi avec motifs floraux délicats. Idéale pour l\'été avec sa coupe légère et aérée.', sizes:['S','M','L','XL'], colors:['Floral','Noir','Blanc'] },
+  { id:8, name:'Tenue Casual Kaki', cat:'casual', price:80, badge:'', emoji:'🌿', color:'#a8b898', image:'Tenue_Casual_Kaki.jpg', desc:'Tenue casual polyvalente en ton kaki naturel. Confortable et élégante pour le quotidien.', sizes:['S','M','L','XL'], colors:['Kaki','Beige','Noir'] },
+];
+
+let cart = [];
+let currentFilter = 'tous';
+
+function hasValidCartItems(items) {
+  return Array.isArray(items) && items.some(item => Number(item.qty || 0) > 0);
+}
+
+// Charger le panier depuis localStorage au démarrage
+function loadCartFromStorage() {
+  const saved = localStorage.getItem('cart');
+  if (!saved) {
+    cart = [];
+    return;
+  }
+
+  try {
+    const parsed = JSON.parse(saved);
+    cart = Array.isArray(parsed)
+      ? parsed.filter(item => Number(item && item.qty ? item.qty : 0) > 0)
+      : [];
+  } catch (e) {
+    console.error('Erreur chargement panier:', e);
+    cart = [];
+  }
+}
+
+function renderProducts(filter) {
+  const grid = document.getElementById('products-grid');
+  const filtered = filter === 'tous' ? products : products.filter(p => p.cat === filter);
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card" data-cat="${p.cat}" onclick="showProductDetail(${p.id})" style="cursor: pointer;">
+      <div class="product-img" style="${p.image ? `background-image: url('${p.image}'); background-size: cover; background-position: center; background-color: #f5e6da;` : `background: linear-gradient(160deg, ${p.color}33, ${p.color}66);`}">
+        ${p.badge ? `<div class="product-badge ${p.badge}">${p.badge === 'new' ? 'Nouveau' : 'Promo'}</div>` : ''}
+        <div class="product-actions">
+          <button class="action-btn" title="Favoris">🤍</button>
+        </div>
+        ${!p.image ? `<span style="font-size:80px; filter: drop-shadow(2px 8px 12px rgba(0,0,0,0.15));">${p.emoji}</span>` : ''}
+      </div>
+      <div class="product-info">
+        <div class="product-cat">${p.cat}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-footer">
+          <div class="product-price">${p.price}<span>DT</span></div>
+          <button class="add-btn" onclick="showProductDetail(${p.id}); event.stopPropagation();">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProducts(cat, btn) {
+  currentFilter = cat;
+  if (btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  renderProducts(cat);
+  document.getElementById('produits').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ─── CART ───
+function addToCart(id) {
+  const prod = products.find(p => p.id === id);
+  const existing = cart.find(c => c.id === id && !c.selectedSize && !c.selectedColor);
+  if (existing) existing.qty++;
+  else cart.push({ ...prod, qty: 1, selectedSize: '', selectedColor: '' });
+  updateCartUI();
+  showToast(`🛍️ ${prod.name} ajouté !`);
+}
+
+function updateCartUI() {
+  cart = Array.isArray(cart) ? cart.filter(c => Number(c && c.qty ? c.qty : 0) > 0) : [];
+
+  const count = cart.reduce((a, c) => a + c.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+
+  const total = cart.reduce((a, c) => a + c.price * c.qty, 0);
+  document.getElementById('cart-total').textContent = total + ' DT';
+
+  const itemsEl = document.getElementById('cart-items');
+  if (cart.length === 0) {
+    itemsEl.innerHTML = '<div class="cart-empty"><span class="cart-empty-icon">🛍️</span>Votre panier est vide</div>';
+    localStorage.removeItem('cart');
+    return;
+  }
+  itemsEl.innerHTML = cart.map(c => `
+    <div class="cart-item">
+      <div class="cart-item-img" style="${c.image ? `background-image: url('${c.image}'); background-size: cover; background-position: center;` : `display: flex; align-items: center; justify-content: center; font-size: 24px;`}">${!c.image ? c.emoji : ''}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${c.name}</div>
+        <div class="cart-item-price">${c.price * c.qty} DT ${c.qty > 1 ? '(x'+c.qty+')' : ''}</div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${c.id})">✕</button>
+    </div>
+  `).join('');
+  
+  // Sauvegarder dans localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(c => c.id !== id);
+  updateCartUI();
+}
+
+function toggleCart() {
+  document.getElementById('cart-overlay').classList.toggle('open');
+}
+
+function closeCartOutside(e) {
+  if (e.target === document.getElementById('cart-overlay')) toggleCart();
+}
+
+function goToOrder() {
+  loadCartFromStorage();
+  if (!hasValidCartItems(cart)) {
+    showToast('⚠️ Votre panier est vide');
+    return;
+  }
+
+  const cartOverlay = document.getElementById('cart-overlay');
+  if (cartOverlay.classList.contains('open')) {
+    toggleCart();
+  }
+  window.location.href = 'commande.html';
+}
+
+// ─── TOAST ───
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ─── MENU MOBILE ───
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.cssText = 'display:flex; flex-direction:column; position:fixed; top:70px; left:0; right:0; background:white; padding:20px; gap:16px; box-shadow:0 8px 24px rgba(0,0,0,0.1); z-index:99;';
+  }
+}
+
+// ─── PRODUCT DETAIL ───
+let currentProductDetail = null;
+
+function showProductDetail(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+  
+  currentProductDetail = product;
+  
+  // Set image
+  document.getElementById('detail-product-img').src = product.image;
+  
+  // Set badge
+  const badgeEl = document.getElementById('detail-badge');
+  if (product.badge) {
+    badgeEl.textContent = product.badge === 'new' ? 'NOUVEAU' : 'PROMO';
+    badgeEl.style.background = product.badge === 'new' ? 'var(--rose)' : '#c0392b';
+  } else {
+    badgeEl.style.display = 'none';
+  }
+  
+  // Set info
+  document.getElementById('detail-name').textContent = product.name;
+  document.getElementById('detail-price').textContent = product.price;
+  document.getElementById('detail-desc').textContent = product.desc;
+  
+  // Set colors
+  const colorsEl = document.getElementById('detail-colors');
+  colorsEl.innerHTML = product.colors.map((color, idx) => 
+    `<button class="color-btn ${idx === 0 ? 'active' : ''}" onclick="selectColor(this)">${color}</button>`
+  ).join('');
+  
+  // Set sizes
+  const sizesEl = document.getElementById('detail-sizes');
+  sizesEl.innerHTML = product.sizes.map((size, idx) => 
+    `<button class="size-btn ${idx === 0 ? 'active' : ''}" onclick="selectSize(this)">${size}</button>`
+  ).join('');
+  
+  // Reset qty
+  document.getElementById('detail-qty').value = 1;
+  
+  // Open modal
+  document.getElementById('product-detail-overlay').classList.add('open');
+}
+
+function closeProductDetail(event) {
+  if (event && event.target.id !== 'product-detail-overlay') return;
+  document.getElementById('product-detail-overlay').classList.remove('open');
+  currentProductDetail = null;
+}
+
+function selectColor(btn) {
+  document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function selectSize(btn) {
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function changeQty(delta) {
+  const qtyEl = document.getElementById('detail-qty');
+  let qty = parseInt(qtyEl.value) + delta;
+  if (qty >= 1 && qty <= 10) {
+    qtyEl.value = qty;
+  }
+}
+
+function addToCartFromDetail() {
+  if (!currentProductDetail) return;
+  
+  const qty = parseInt(document.getElementById('detail-qty').value) || 1;
+  const selectedColorBtn = document.querySelector('#detail-colors .color-btn.active');
+  const selectedSizeBtn = document.querySelector('#detail-sizes .size-btn.active');
+  const selectedColor = selectedColorBtn ? selectedColorBtn.textContent.trim() : '';
+  const selectedSize = selectedSizeBtn ? selectedSizeBtn.textContent.trim() : '';
+
+  const existing = cart.find(
+    c =>
+      c.id === currentProductDetail.id &&
+      c.selectedColor === selectedColor &&
+      c.selectedSize === selectedSize
+  );
+  
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    cart.push({
+      ...currentProductDetail,
+      qty: qty,
+      selectedColor: selectedColor,
+      selectedSize: selectedSize
+    });
+  }
+  
+  updateCartUI();
+  showToast(`🛍️ ${currentProductDetail.name} ajouté !`);
+  closeProductDetail();
+}
+
+// ─── INIT ───
+loadCartFromStorage();
+updateCartUI();
+renderProducts('tous');
+
+
+</script>
+</body>
+</html>
